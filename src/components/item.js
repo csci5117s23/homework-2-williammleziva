@@ -4,7 +4,7 @@ import Toggle from '@/components/doneToggle'
 export default function TodoItem({data}){
 
     return(
-        <div>
+        <div className="px-2">
             {data.map((todo) => ( 
                 <div id="todo._id" className="block w-full p-6 border rounded-lg shadow bg-gray-800 border-gray-700 hover:bg-gray-700">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

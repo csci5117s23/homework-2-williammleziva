@@ -3,7 +3,7 @@ import { useAuth } from '@clerk/nextjs';
 import TodoListComponent from "@/components/list"
 import { useClerk, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { getDoneTodos } from "@/modules/Data";
-
+import NotSigned from "@/components/notsigned";
 
 export default function Done(){
 
@@ -24,18 +24,16 @@ export default function Done(){
 
 
   return (
-    <>
+    <div className="px-2">
       <SignedIn>
         <div className="border-black text-black">
           <TodoListComponent title="Completed Items" data={todos}/>
         </div>
       </SignedIn>
       <SignedOut>
-        <div>
-          Sign in to view your todo list
-        </div>
+        <NotSigned/>
       </SignedOut>
-    </>
+    </div>
   );
 };
 

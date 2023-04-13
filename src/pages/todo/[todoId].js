@@ -4,8 +4,7 @@ import { useAuth } from '@clerk/nextjs';
 import { getTodo } from "@/modules/Data";
 import { useRouter } from "next/router";
 import Item from "@/components/item";
-
-const practice = {"done":false,"created":"2023-04-13T00:16:51.063Z","content":"buy socks and shoes","category":"errands","item":"go to the store","userId":"user_2OIFxrlv3oKj6FIPoXnNOdx7obo","_id":"643749f3ffcc7cd5fbf24b8e"}
+import NotSigned from "@/components/notsigned";
 
 export default function SingleTodo(){
     const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -33,9 +32,7 @@ export default function SingleTodo(){
           </div>
         </SignedIn>
         <SignedOut>
-          <div>
-            Sign in to view your todo item
-          </div>
+          <NotSigned/>
         </SignedOut>
       </>
     );
