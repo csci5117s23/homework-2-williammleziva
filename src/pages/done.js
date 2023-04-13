@@ -1,5 +1,6 @@
 import { useAuth } from '@clerk/nextjs';
 import TodoListComponent from "@/components/list"
+import { useClerk, SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const practice = [
   {"done":false,"created":"2023-04-13T00:16:51.063Z","content":"buy socks and shoes","category":"errands","item":"go to the store","userId":"user_2OIFxrlv3oKj6FIPoXnNOdx7obo","_id":"643749f3ffcc7cd5fbf24b8e"},
@@ -11,20 +12,19 @@ export default function Done(){
 
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
-
-  if (!userId){
-    return (
-      <div>
-        Sign in to view your todo list
-      </div>
-    )
-  }
-  else{
-    return (
-      <div className="border-black text-black">
-        <TodoListComponent title="Completed Items" data={practice}/>
-      </div>
-    );
-  }
+  return (
+    <>
+      <SignedIn>
+        <div className="border-black text-black">
+          <TodoListComponent title="Completed Items" data={practice}/>
+        </div>
+      </SignedIn>
+      <SignedOut>
+        <div>
+          Sign in to view your todo list
+        </div>
+      </SignedOut>
+    </>
+  );
 };
 

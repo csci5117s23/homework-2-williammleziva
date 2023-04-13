@@ -10,7 +10,6 @@ export default function AddTodoPage(){
 
   const [todos, setTodos] = useState([]);
 
-  
   useEffect(()=>{
     async function loadTodos() {
         if(userId) {
@@ -22,7 +21,6 @@ export default function AddTodoPage(){
     }
     loadTodos();
   }, [isLoaded]);
-
 
   const add = async (event) => {
     event.preventDefault();

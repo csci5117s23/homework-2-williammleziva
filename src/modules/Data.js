@@ -19,14 +19,22 @@ export async function getTodos(authToken, uId) {
     return resp.json();
 }
 
+export async function getDoneTodos(authToken, uId) {
+    const resp = await fetch(Backend_URL+'/todos?userId='+uId+'&done=true&sort=-created', {
+        method: "GET",
+        headers: {'Authorization': 'Bearer ' + authToken}
+    });
+    return resp.json();
+}
+
 export async function getTodo(authToken, tId) {
-    const resp = await fetch(`${Backend_URL}/todos?_id=${tId}`, {
+    const resp = await fetch(Backend_URL+'/todos?_id='+tId, {
         method: "GET",
         'headers': {'Authorization': 'Bearer ' + authToken}
     });
-    return await resp.json();
+    return resp.json();
 }
 
 export async function toggleDone(authToken, tId){
-    
+
 }
