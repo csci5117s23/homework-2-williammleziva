@@ -36,7 +36,7 @@ export default function AddTodoPage(){
     }
     //console.log (data);
     const newTodoresp = await addTodo(authToken, data);
-    
+
     event.target[0].value="";
     event.target[1].value="";
     event.target[2].value="";
@@ -57,7 +57,7 @@ export default function AddTodoPage(){
         </h5>
         <form onSubmit={add} id="todoFields"> 
         {/* tailwind styling from https://flowbite.com/docs/forms/input-field/ */}
-          <label for="item" className="block mb-2 text-sm font-medium text-gray-900">To Do List Item</label>
+          <label for="item" className="block mb-2 text-sm font-medium text-gray-900">To-Do List Item</label>
           <input type="text" id="item" className="border mb-1.5 text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Grocery Shopping" required/>
           <label for="category" className="block mb-2 text-sm font-medium text-gray-900">Category</label>
           <input type="text" id="category"  className="border mb-1.5 text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Monday Errands" required/>
@@ -69,7 +69,7 @@ export default function AddTodoPage(){
           Your To-Do List
           <FontAwesomeIcon className="ml-2 mt-4 absolute" size="xs" icon={faArrowTurnDown} style={{color: "#000000",}} />
         </h5>
-        <TodoListComponent title="Todo Items" data={todos}/>
+        <TodoListComponent title="To-Do Items" data={todos}/>
       </SignedIn>
       <SignedOut>
         <NotSigned/>

@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 const navigation = [
     { name: 'Completed Items', href: '/done' },
-    { name: 'Todo List', href: '/todos' },
+    { name: 'To-Do List', href: '/todos' },
   ]
   
 
