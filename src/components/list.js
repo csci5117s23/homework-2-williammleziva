@@ -12,12 +12,14 @@ return(
             {title}
         </a>
         {data.map((todo) => (
-            <div key={todo._id} className="block w-full px-4 py-2 border-b border-gray-200 cursor-default border-gray-600 focus:ring-gray-500 focus:text-white hover:bg-gray-600 hover:text-white">
-                <span>{todo.item}</span>
-                <Toggle done={todo.done} tId={todo._id}/>
-                <Link href={`/todo/${todo._id}`} className="float-right mx-4 align-center text-lg">
-                    <FontAwesomeIcon icon={faCircleInfo} style={{ color: "#5b90ec" }} />
-                </Link>
+            <div key={todo._id} className="block w-full flex justify-between px-4 py-2 truncate border-b border-gray-200 cursor-default border-gray-600 focus:ring-gray-500 focus:text-white hover:bg-gray-600 hover:text-white">
+                <span className="overflow-hidden truncate"> {todo.item}</span>
+                <div className="flex">
+                    <Link href={`/todo/${todo._id}`} className="float-right mx-4 align-center text-lg">
+                        <FontAwesomeIcon icon={faCircleInfo} style={{ color: "#5b90ec" }} />
+                    </Link>
+                    <Toggle todo={todo}/>
+                </div>
             </div>
         ))}
     </div>

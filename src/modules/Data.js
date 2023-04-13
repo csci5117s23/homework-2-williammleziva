@@ -1,11 +1,11 @@
 const Backend_URL = "https://backend-oayc.api.codehooks.io/dev"
 
-export async function addTodo(authToken, todos) {
+export async function addTodo(authToken, todo) {
     const resp = await fetch(Backend_URL+"/todos", {
         method: "POST", 
         headers: {  'Authorization': 'Bearer ' + authToken,
                     'Content-Type': "application/json" },
-        body: JSON.stringify(todos)
+        body: JSON.stringify(todo)
     });
     console.log(resp);
     return resp;
@@ -35,6 +35,12 @@ export async function getTodo(authToken, tId) {
     return resp.json();
 }
 
-export async function toggleDone(authToken, tId){
-
+export async function updateTodo(authToken, todo){
+    const resp = await fetch(Backend_URL+'/todos/'+todo._id,{
+        'method':'PUT',
+        'headers': {'Authorization': 'Bearer ' + authToken,
+        'Content-Type': 'application/json'},
+        'body': JSON.stringify(todo)
+    })
+    return resp.json();
 }

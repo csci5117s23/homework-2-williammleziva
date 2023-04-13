@@ -6,8 +6,8 @@ import { Dialog } from '@headlessui/react'
 import { useState } from 'react'
 
 const navigation = [
-    { name: 'Todo List', href: '/done' },
-    { name: 'Add an Item', href: '/todos' },
+    { name: 'Completed Items', href: '/done' },
+    { name: 'Todo List', href: '/todos' },
   ]
   
 
